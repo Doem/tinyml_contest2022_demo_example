@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# Dataset
+tinyml_contest_data_training/
+tinyml_contest_data_training.rar
+tinyml_contest_data_training.zip
+
+# Models / records
+records/
+saved_models/

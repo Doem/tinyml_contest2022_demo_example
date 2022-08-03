@@ -16,8 +16,9 @@ You can run this classifier code by installing the requirements
 
 and running
 
-    python training_save_deep_models.py 
-    python testing_performances.py
+    python training_save_deep_models.py --path_data "PATH TO YOUR TRAINING DATA"
+    
+    python testing_performances.py --path_data "PATH TO YOUR TRAINING DATA"
 
 where `models` is a folder of model structure file, `saved_models` is a folder for saving your models, `data_indices` is a folder of data indices (the given training dataset has been partitioned into training and testing dataset, you can create more partitions of the training data locally for debugging and cross-validation), and `records` is a folder for saving the statistics outputs. The [TinyML Contest 2022 web-page](https://tinymlcontest.github.io/TinyML-Design-Contest/Problems.html) provides a description of the data files.
 

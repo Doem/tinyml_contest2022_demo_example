@@ -6,6 +6,7 @@ import torch.nn as nn
 import torch.optim as optim
 from help_code_demo import ToTensor, IEGM_DataSET
 from models.model_1 import IEGMNet
+from pathlib import Path
 
 
 def main():
@@ -110,6 +111,9 @@ def main():
         Test_loss.append(running_loss_test / i)
         Test_acc.append((correct / total).item())
 
+    # Make sure the folder is exist
+    Path(args.path_saved_models).mkdir(parents= True, exist_ok= True)
+
     torch.save(net, './saved_models/IEGM_net.pkl')
     torch.save(net.state_dict(), './saved_models/IEGM_net_state_dict.pkl')
 
@@ -137,12 +141,12 @@ if __name__ == '__main__':
     argparser.add_argument('--batchsz', type=int, help='total batchsz for traindb', default=32)
     argparser.add_argument('--cuda', type=int, default=0)
     argparser.add_argument('--size', type=int, default=1250)
-    argparser.add_argument('--path_data', type=str, default='H:/Date_Experiment/data_IEGMdb_ICCAD_Contest/segments-R250'
-                                                            '-BPF15_55-Noise/tinyml_contest_data_training/')
+    argparser.add_argument('--path_data', type=str, required= True)
     argparser.add_argument('--path_indices', type=str, default='./data_indices')
+    argparser.add_argument('--path_saved_models', type=str, default='./saved_models')
 
     args = argparser.parse_args()
-
+    
     device = torch.device("cuda:" + str(args.cuda))
 
     print("device is --------------", device)

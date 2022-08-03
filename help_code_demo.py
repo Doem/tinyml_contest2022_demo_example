@@ -172,7 +172,7 @@ class IEGM_DataSET():
         return len(self.names_list)
 
     def __getitem__(self, idx):
-        text_path = self.root_dir + self.names_list[idx].split(' ')[0]
+        text_path = os.path.join(self.root_dir, self.names_list[idx].split(' ')[0])
 
         if not os.path.isfile(text_path):
             print(text_path + 'does not exist')
